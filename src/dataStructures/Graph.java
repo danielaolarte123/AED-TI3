@@ -27,18 +27,24 @@ public class Graph<V> {
         return null;
     }
 
-    public void insertEdge(V item1, V item2) {
+    public boolean insertEdge(V item1, V item2,int cost) {
+        boolean insert=true;
 
         Vertex<V> vertex1 = searchVertex(item1);
         Vertex<V> vertex2 = searchVertex(item2);
-        Edge<V> edge = new Edge<>(vertex1, vertex2, 1);
+        Edge<V> edge = new Edge<>(vertex1, vertex2, cost);
 
-        if (vertex1 == vertex2) {
+        if (vertex1 == null && vertex2==null) {
+            insert=false;
+        } else if (vertex1 ==vertex2 ) {
             vertex1.addEdge(edge);
-        } else if (vertex1 != null && vertex2 != null) {
+        }else{
             vertex1.addEdge(edge);
             vertex2.addEdge(edge);
+            
         }
+
+        return insert;
 
     }
 
@@ -50,15 +56,17 @@ public class Graph<V> {
         this.vertices = vertices;
     }
 
-    public void delete(V item){
+    public boolean delete(V item){
         Vertex<V> vertex=searchVertex(item);
+        boolean delete=false;
 
         if (vertex !=null){
             vertices.remove(vertex);
             vertex.delete();
+            delete=true;
         }
 
-       
+       return delete;
        
     }
 
