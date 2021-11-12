@@ -15,11 +15,11 @@ public class GraphTest {
 
     private Graph<String> graph;
 
-    private void setupScenary1() {
+    private void setupStage1() {
         graph = new Graph<String>();
     }
 
-    private void setupScenary2() {
+    private void setupStage2() {
         graph = new Graph<String>();
         graph.insertVertex("1");
         graph.insertVertex("2");
@@ -37,7 +37,7 @@ public class GraphTest {
 
     }
 
-    private void setupScenary3() {
+    private void setupStage3() {
         graph = new Graph<String>();
         graph.insertVertex("1");
         graph.insertVertex("2");
@@ -82,7 +82,7 @@ public class GraphTest {
     @Test
     public void insertVertexTest1() {
 
-        setupScenary1();
+        setupStage1();
 
         Vertex<String> vertex1 = graph.searchVertex("1");
         Vertex<String> vertex2 = graph.searchVertex("2");
@@ -94,7 +94,7 @@ public class GraphTest {
     @Test
     public void insertVertexTest2() {
 
-        setupScenary2();
+        setupStage2();
 
         Vertex<String> vertex1 = graph.searchVertex("1");
         Vertex<String> vertex2 = graph.searchVertex("2");
@@ -113,7 +113,7 @@ public class GraphTest {
     @Test
     public void insertVertexTest3() {
 
-        setupScenary3();
+        setupStage3();
 
         Vertex<String> vertex1 = graph.searchVertex("7");
         Vertex<String> vertex2 = graph.searchVertex("8");
@@ -131,7 +131,7 @@ public class GraphTest {
 
     @Test
     public void searchVertexTest() {
-        setupScenary3();
+        setupStage3();
 
         assertTrue(graph.searchVertex("4").getItem().equals("4"));
         assertTrue(graph.searchVertex("10").getItem().equals("10"));
@@ -142,7 +142,7 @@ public class GraphTest {
     @Test
     public void insertEdgeTest1() {
 
-        setupScenary1();
+        setupStage1();
         boolean edge1 = graph.insertEdge("8", "7", 1);
         boolean edge2 = graph.insertEdge("8", "10", 1);
         boolean edge3 = graph.insertEdge("8", "11", 1);
@@ -155,7 +155,7 @@ public class GraphTest {
     @Test
     public void insertEdgeTest2() {
 
-        setupScenary2();
+        setupStage2();
 
         boolean edge = graph.insertEdge("3", "4", 1);
         assertTrue(edge);
@@ -177,7 +177,7 @@ public class GraphTest {
     @Test
     public void insertEdgeTest3() {
 
-        setupScenary3();
+        setupStage3();
 
         boolean edge = graph.insertEdge("10", "1", 1);
         assertTrue(edge);
@@ -199,7 +199,7 @@ public class GraphTest {
     @Test
     public void deleteVertexTest1() {
 
-        setupScenary1();
+        setupStage1();
 
         boolean delete = graph.delete("2");
         assertFalse(delete);
@@ -209,7 +209,7 @@ public class GraphTest {
     @Test
     public void deleteVertexTest2() {
 
-        setupScenary2();
+        setupStage2();
 
         boolean delete1 = graph.delete("1");
         boolean delete6 = graph.delete("6");
@@ -221,7 +221,7 @@ public class GraphTest {
     @Test
     public void deleteVertexTest3() {
 
-        setupScenary3();
+        setupStage3();
 
         boolean delete1 = graph.delete("1");
         boolean delete6 = graph.delete("6");
