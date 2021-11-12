@@ -2,7 +2,7 @@ package dataStructures;
 
 import java.util.ArrayList;
 
-public class Graph<V> {
+public class Graph<V> implements IGraph<V>{
 
     private ArrayList<Vertex<V>> vertices;
 
