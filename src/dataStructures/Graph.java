@@ -1,6 +1,6 @@
 package dataStructures;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Graph<V> implements IGraph<V>{
 
@@ -68,6 +68,43 @@ public class Graph<V> implements IGraph<V>{
 
        return delete;
        
+    }
+
+    @Override
+    public Stack<Vertex<V>> dijkstra(Vertex initialVertex, Vertex finalVertex) {
+        PriorityQueue<Vertex<V>> distances = new PriorityQueue<>(vertices.size(), new Comparator<Vertex<V>>() {
+            @Override
+            public int compare(Vertex<V> o1, Vertex<V> o2) {
+                return o1.getDistance() - o2.getDistance();
+            }
+        });
+
+        initialVertex.setDistance(0);
+        for (Vertex vertex : vertices) {
+            if (vertex != initialVertex)
+                vertex.setDistance(Integer.MAX_VALUE);
+            vertex.setPrev(null);
+            distances.add(vertex);
+        }
+        while (!distances.isEmpty()) {
+            Vertex<V> u = distances.poll();
+            for (Vertex<V> v : u.adjacency()) {
+                int alt = u.getDistance() + length(u,v);    //TODO complete length method
+                if (alt < v.getDistance()) {
+                    v.setDistance(alt);
+                    v.setPrev(u);
+                }
+            }
+        }
+        Stack<Vertex<V>> path = new Stack<>();
+        Vertex<V> target = finalVertex;
+        if (target.getPrev() != null || target == initialVertex) {
+            while (target != null) {
+                path.push(target);
+                target = target.getPrev();
+            }
+        }
+        return path;
     }
 
     @Override
