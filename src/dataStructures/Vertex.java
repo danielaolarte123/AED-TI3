@@ -6,10 +6,13 @@ public class Vertex<V> {
 
     private V item;
     private ArrayList<Edge<V>> edges;
+    private int distance;
+    private Vertex<V> prev;
 
     public Vertex(V item) {
         this.item = item;
         this.edges = new ArrayList<>();
+        prev = null;
     }
 
     public void addEdge(Edge<V> edge) {
@@ -30,6 +33,22 @@ public class Vertex<V> {
 
     public void setEdges(ArrayList<Edge<V>> edges) {
         this.edges = edges;
+    }
+
+    public int getDistance () {
+        return distance;
+    }
+
+    public void setDistance (int distance) {
+        this.distance = distance;
+    }
+
+    public Vertex<V> getPrev () {
+        return prev;
+    }
+
+    public void setPrev (Vertex<V> prev) {
+        this.prev = prev;
     }
 
     private Vertex<V> compareEdge(Edge<V> edge) {
@@ -57,6 +76,23 @@ public class Vertex<V> {
         }
 
         return msg;
+    }
+
+
+    public ArrayList<Vertex<V>> adjacency() {
+        ArrayList<Vertex<V>> list=new ArrayList<>();
+        for (Edge<V> edge : edges) {
+            Vertex<V> vertex = compareEdge(edge);
+
+            if (vertex == null) {
+                list.add(edge.getVertex1());
+            } else {
+                list.add(vertex);
+            }
+
+        }
+
+        return list;
     }
 
     public void delete() {
