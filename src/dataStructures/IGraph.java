@@ -1,6 +1,6 @@
 package dataStructures;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public interface IGraph<V> {
 
@@ -16,7 +16,8 @@ public interface IGraph<V> {
 
     public boolean delete(V item);
 
-    
+    public Stack<Vertex<V>> dijkstra (Vertex initialVertex, Vertex finalVertex);
+
     public String toString();
 
 }
