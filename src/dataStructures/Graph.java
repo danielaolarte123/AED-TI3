@@ -107,6 +107,10 @@ public class Graph<V> implements IGraph<V>{
         return path;
     }
 
+    private int length(Vertex<V> u, Vertex<V> v) {
+        return 0;
+    }
+
     @Override
     public String toString() {
         String msg = "Adjacency list";
