@@ -1,22 +1,24 @@
 package model;
 
 import dataStructures.Graph;
+import dataStructures.Vertex;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class IcesiMap {
 
-    private final String SEPARATOR;
-    private final String FILENAME;
+    private final String SEPARATOR = ";";
+    private final String FILENAME = "data/adjacency_list_map.csv";
 
     private Graph<Place> map;
 
-    public IcesiMap () {
+    public IcesiMap () throws IOException {
         map = new Graph<>();
-        SEPARATOR = ";";
-        FILENAME = "data/icesi-map.csv";
+        importData();
     }
 
     private void addPlace (Place newPlace) {
@@ -46,7 +48,19 @@ public class IcesiMap {
         String line = br.readLine();
         while (line != null) {
             insertAdjacent(line);
+            line = br.readLine();
         }
         br.close();
+    }
+
+    public String lowerCostPath (Vertex<Place> initialPlace, Vertex<Place> finalPlace) {
+        Stack<Vertex<Place>> lowerCostPathStack = map.dijkstra(initialPlace, finalPlace);
+        Vertex<Place> [] lowerCostPathArray = (Vertex<Place>[]) lowerCostPathStack.toArray();
+
+        String message = "";
+        for (Vertex<Place> place : lowerCostPathArray) {
+            message += place.toString() + "\n";
+        }
+        return message;
     }
 }
