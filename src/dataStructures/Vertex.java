@@ -107,4 +107,15 @@ public class Vertex<V> {
         }
     }
 
+    public Edge<V> searchEdge(Vertex<V> vertex){
+        for (Edge<V> edge:edges) {
+            if (edge.getVertex1()==vertex){
+                return edge;
+            }else if (edge.getVertex2()==vertex){
+                return edge;
+            }
+        }
+        return null;
+    }
+
 }
