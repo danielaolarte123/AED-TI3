@@ -16,7 +16,7 @@ public interface IGraph<V> {
 
     public boolean delete(V item);
 
-    public Stack<Vertex<V>> dijkstra (Vertex initialVertex, Vertex finalVertex);
+    public Stack<Vertex<V>> dijkstra (Vertex<V> initialVertex, Vertex<V> finalVertex);
 
     public String toString();
 

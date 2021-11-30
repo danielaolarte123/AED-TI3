@@ -2,7 +2,6 @@ package model;
 
 import dataStructures.Graph;
 
-import java.awt.image.ImagingOpException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

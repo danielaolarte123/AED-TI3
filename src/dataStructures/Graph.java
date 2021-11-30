@@ -2,7 +2,7 @@ package dataStructures;
 
 import java.util.*;
 
-public class Graph<V> implements IGraph<V>{
+public class Graph<V> implements IGraph<V> {
 
     private ArrayList<Vertex<V>> vertices;
 
@@ -27,21 +27,21 @@ public class Graph<V> implements IGraph<V>{
         return null;
     }
 
-    public boolean insertEdge(V item1, V item2,int cost) {
-        boolean insert=true;
+    public boolean insertEdge(V item1, V item2, int cost) {
+        boolean insert = true;
 
         Vertex<V> vertex1 = searchVertex(item1);
         Vertex<V> vertex2 = searchVertex(item2);
         Edge<V> edge = new Edge<>(vertex1, vertex2, cost);
 
-        if (vertex1 == null && vertex2==null) {
-            insert=false;
-        } else if (vertex1 ==vertex2 ) {
+        if (vertex1 == null && vertex2 == null) {
+            insert = false;
+        } else if (vertex1 == vertex2) {
             vertex1.addEdge(edge);
-        }else{
+        } else {
             vertex1.addEdge(edge);
             vertex2.addEdge(edge);
-            
+
         }
 
         return insert;
@@ -56,22 +56,22 @@ public class Graph<V> implements IGraph<V>{
         this.vertices = vertices;
     }
 
-    public boolean delete(V item){
-        Vertex<V> vertex=searchVertex(item);
-        boolean delete=false;
+    public boolean delete(V item) {
+        Vertex<V> vertex = searchVertex(item);
+        boolean delete = false;
 
-        if (vertex !=null){
+        if (vertex != null) {
             vertices.remove(vertex);
             vertex.delete();
-            delete=true;
+            delete = true;
         }
 
-       return delete;
-       
+        return delete;
+
     }
 
     @Override
-    public Stack<Vertex<V>> dijkstra(Vertex initialVertex, Vertex finalVertex) {
+    public Stack<Vertex<V>> dijkstra(Vertex<V> initialVertex, Vertex<V> finalVertex) {
         PriorityQueue<Vertex<V>> distances = new PriorityQueue<>(vertices.size(), new Comparator<Vertex<V>>() {
             @Override
             public int compare(Vertex<V> o1, Vertex<V> o2) {
@@ -80,7 +80,7 @@ public class Graph<V> implements IGraph<V>{
         });
 
         initialVertex.setDistance(0);
-        for (Vertex vertex : vertices) {
+        for (Vertex<V> vertex : vertices) {
             if (vertex != initialVertex)
                 vertex.setDistance(Integer.MAX_VALUE);
             vertex.setPrev(null);
@@ -89,7 +89,8 @@ public class Graph<V> implements IGraph<V>{
         while (!distances.isEmpty()) {
             Vertex<V> u = distances.poll();
             for (Vertex<V> v : u.adjacency()) {
-                int alt = u.getDistance() + length(u,v);    //TODO complete length method
+                int alt = u.getDistance() + length(u, v);
+                // TODO complete length method
                 if (alt < v.getDistance()) {
                     v.setDistance(alt);
                     v.setPrev(u);

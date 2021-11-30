@@ -7,37 +7,39 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import model.IcesiMap;
 
 public class Main extends Application {
 
-	// private FIBAController fibaController;
-	// private FIBA fiba;
+	private IcesiMap icesiMap;
+	private Controller controller;
 
 	public Main() {
 
-		// fiba = new FIBA();
+		icesiMap = new IcesiMap();
 
-		// fibaController=new FIBAController(fiba);
+		controller=new Controller(icesiMap);
 	}
 
 	public static void main(String[] args) {
-		// launch(args);
+		launch(args);
 
 
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		/*
-		 * //FXMLLoader fxmload = new FXMLLoader(getClass().getResource("Pane.fxml"));
-		 * fxmload.setController(fibaController); Parent root=fxmload.load(); Scene
-		 * scene = new Scene(root,700,500); primaryStage.setScene(scene);
-		 * primaryStage.show(); primaryStage.setTitle("FIBA");
-		 * primaryStage.setResizable(false);
-		 * 
-		 * Image icon = new Image("resources/FIBA-logo.png");
-		 * primaryStage.getIcons().add(icon); fibaController.loadMenu();
-		 */
+		
+		 FXMLLoader fxmload = new FXMLLoader(getClass().getResource("Pane.fxml"));
+		 fxmload.setController(controller); Parent root=fxmload.load(); Scene
+		 scene = new Scene(root,1280,720); primaryStage.setScene(scene);
+		 primaryStage.show(); primaryStage.setTitle("ICESI MAP");
+		primaryStage.setResizable(false);
+		 
+		 Image icon = new Image("resources/icon.png");
+		  primaryStage.getIcons().add(icon);
+		  controller.loadMenu();
+		 
 
 	}
 
