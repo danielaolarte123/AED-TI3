@@ -8,6 +8,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.IcesiMap;
 
+import java.io.IOException;
+
 public class Main extends Application {
 
 	private IcesiMap icesiMap;
@@ -15,7 +17,11 @@ public class Main extends Application {
 
 	public Main() {
 
-		icesiMap = new IcesiMap();
+		try {
+			icesiMap = new IcesiMap();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		controller=new Controller(icesiMap);
 	}
