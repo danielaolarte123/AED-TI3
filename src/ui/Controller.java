@@ -12,6 +12,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.layout.AnchorPane;
 import model.IcesiMap;
+import model.Place;
 
 public class Controller {
 
@@ -67,8 +68,9 @@ public class Controller {
         mainPane.getChildren().addAll(pane);
 
         // List view
-        //TODO add method of IcesiMap
-        listView.getItems().addAll("a", "a", "a", "a");
+        Place initialPlace = new Place(initPoint.getSelectionModel().getSelectedItem());
+        Place finalPlace = new Place(finalPoint.getSelectionModel().getSelectedItem());
+        listView.getItems().addAll(icesiMap.lowerCostPath(initialPlace,finalPlace));
 
     }
 
