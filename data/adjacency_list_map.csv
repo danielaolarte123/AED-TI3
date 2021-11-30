@@ -1,0 +1,19 @@
+auditorios;1;edificio M;1;cafeteria principal;2;parqueaderos auditorios
+cafeteria principal;1;Biblioteca;2;edificio A;1;auditorios;4;edificio G;3;parqueaderos auditorios
+parqueaderos auditorios;2;auditorios;4;edificio G;3;cafeteria principal
+parqueaderos M;2;edificio M;3;edificio Tecnoquimicas
+parqueaderos E;2;edificio E;3;edificio D
+edificio Bienestar Universitario;1;edificio D;1;Canchas de Futbol;3;edificio E;1;edificio H
+Canchas de Futbol;1;edificio Bienestar Universitario;2;edificio E
+edificio Tecnoquimicas;2;Biblioteca;1;edificio B;1;edificio A;3;parqueaderos M
+Biblioteca;1;cafeteria principal;1;edificio A;2;edificio Tecnoquimicas;1;edificio B;6;edificio G
+edificio A;2;cafeteria principal;1;edificio M;1;Biblioteca;1;edificio Tecnoquimicas
+edificio B;1;Biblioteca;1;edificio C;1;edificio Tecnoquimicas
+edificio C;1; edificio B;1;edificio D;3;edificio L
+edificio D;1;edificio C;2;edificio E;1;edificio Bienestar Universitario;3;edificio H;3;parqueaderos E
+edificio E;2;parqueaderos E;2;edificio D;2;Canchas de Futbol;3;edificio Bienestar Universitario
+edificio F;4;edificio G;7;edificio L
+edificio G;4;parqueaderos auditorios;6;edificio L
+edificio H;3;edificio D;1;edificio Bienestar Universitario;1;edificio L
+edificio L;3;edificio C;1;edificio H;6;edificio G;7;edificio F
+edificio M;1;auditorios;1;edificio A;2;parqueaderos M
