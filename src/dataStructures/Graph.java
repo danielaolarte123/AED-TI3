@@ -5,9 +5,11 @@ import java.util.*;
 public class Graph<V> implements IGraph<V> {
 
     private ArrayList<Vertex<V>> vertices;
+    private ArrayList<Edge<V>> edges;
 
     public Graph() {
         vertices = new ArrayList<>();
+        edges = new ArrayList<>();
     }
 
     public void insertVertex(V item) {
@@ -33,6 +35,7 @@ public class Graph<V> implements IGraph<V> {
         Vertex<V> vertex1 = searchVertex(item1);
         Vertex<V> vertex2 = searchVertex(item2);
         Edge<V> edge = new Edge<>(vertex1, vertex2, cost);
+        edges.add(edge);
 
         if (vertex1 == null && vertex2 == null) {
             insert = false;
@@ -54,6 +57,15 @@ public class Graph<V> implements IGraph<V> {
 
     public void setVertices(ArrayList<Vertex<V>> vertices) {
         this.vertices = vertices;
+    }
+
+
+    public ArrayList<Edge<V>> getEdges() {
+        return edges;
+    }
+
+    public void setEdges(ArrayList<Edge<V>> edges) {
+        this.edges = edges;
     }
 
     public boolean delete(V item) {

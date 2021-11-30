@@ -16,34 +16,43 @@ public class IcesiMap {
 
     private Graph<Place> map;
 
-    public IcesiMap () throws IOException {
+    public IcesiMap() throws IOException {
         map = new Graph<>();
         importData();
+        System.out.println(map.toString());
     }
 
-    private void addPlace (Place newPlace) {
+    private void addPlace(Place newPlace) {
         map.insertVertex(newPlace);
     }
 
-    private boolean deletePlace (Place placeToDelete) {
+    private boolean deletePlace(Place placeToDelete) {
         return map.delete(placeToDelete);
     }
 
-    private void insertAdjacent (String rowOfAdjacent) {
-        String [] adjacent = rowOfAdjacent.split(SEPARATOR);
+    private void insertAdjacent(String rowOfAdjacent) {
+        String[] adjacent = rowOfAdjacent.split(SEPARATOR);
         Place mainPlace = new Place(adjacent[0]);
-        if (map.searchVertex(mainPlace) == null)
+        if (map.searchVertex(mainPlace) == null){
             addPlace(mainPlace);
-        for (int i = 1; i < adjacent.length; i+=2) {
+        }else{
+            System.out.println("X");
+        }
+
+        for (int i = 1; i < adjacent.length; i += 2) {
             Place adjacentPlace = new Place(adjacent[i + 1]);
             int cost = Integer.parseInt(adjacent[i]);
-            if (map.searchVertex(adjacentPlace) == null)
+            if (map.searchVertex(adjacentPlace) == null){
                 addPlace(adjacentPlace);
-            map.insertEdge(mainPlace,adjacentPlace, cost);
+            }
+            if(map.searchVertex(mainPlace).searchEdge(map.searchVertex(adjacentPlace))==null){
+                map.insertEdge(mainPlace, adjacentPlace, cost);
+            }
+            
         }
     }
 
-    public void importData () throws IOException {
+    public void importData() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader((FILENAME)));
         String line = br.readLine();
         while (line != null) {
@@ -53,14 +62,20 @@ public class IcesiMap {
         br.close();
     }
 
-    public String lowerCostPath (Vertex<Place> initialPlace, Vertex<Place> finalPlace) {
+    public String lowerCostPath(Vertex<Place> initialPlace, Vertex<Place> finalPlace) {
         Stack<Vertex<Place>> lowerCostPathStack = map.dijkstra(initialPlace, finalPlace);
-        Vertex<Place> [] lowerCostPathArray = (Vertex<Place>[]) lowerCostPathStack.toArray();
+        Vertex<Place>[] lowerCostPathArray = (Vertex<Place>[]) lowerCostPathStack.toArray();
 
         String message = "";
         for (Vertex<Place> place : lowerCostPathArray) {
             message += place.toString() + "\n";
         }
         return message;
+    }
+
+    public ArrayList<String> getPlaces() {
+        ArrayList<String> places = new ArrayList<String>();
+        map.getVertices().forEach(element -> places.add(element.getItem().getName()));
+        return places;
     }
 }

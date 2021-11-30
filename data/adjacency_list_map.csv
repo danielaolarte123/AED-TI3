@@ -9,7 +9,7 @@ edificio Tecnoquimicas;2;Biblioteca;1;edificio B;1;edificio A;3;parqueaderos M
 Biblioteca;1;cafeteria principal;1;edificio A;2;edificio Tecnoquimicas;1;edificio B;6;edificio G
 edificio A;2;cafeteria principal;1;edificio M;1;Biblioteca;1;edificio Tecnoquimicas
 edificio B;1;Biblioteca;1;edificio C;1;edificio Tecnoquimicas
-edificio C;1; edificio B;1;edificio D;3;edificio L
+edificio C;1;edificio B;1;edificio D;3;edificio L
 edificio D;1;edificio C;2;edificio E;1;edificio Bienestar Universitario;3;edificio H;3;parqueaderos E
 edificio E;2;parqueaderos E;2;edificio D;2;Canchas de Futbol;3;edificio Bienestar Universitario
 edificio F;4;edificio G;7;edificio L

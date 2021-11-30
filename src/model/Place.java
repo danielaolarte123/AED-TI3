@@ -19,4 +19,17 @@ public class Place {
     public String toString () {
         return name;
     }
+
+
+
+    @Override
+    public boolean equals(Object obj) {
+
+        Place other = (Place) obj;
+
+        return name.equals(other.getName());
+    }
+
+    
+
 }

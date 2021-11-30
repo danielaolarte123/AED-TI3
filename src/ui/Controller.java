@@ -1,6 +1,7 @@
 package ui;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -39,8 +40,9 @@ public class Controller {
         mainPane.getChildren().clear();
         mainPane.getChildren().addAll(pane);
 
-        initPoint.getItems().addAll("Points", "Rebounds", "Assists", "Robberies", "Blocks");
-        finalPoint.getItems().addAll("Points", "Rebounds", "Assists", "Robberies", "Blocks");
+
+        initPoint.getItems().addAll(icesiMap.getPlaces());
+        finalPoint.getItems().addAll(icesiMap.getPlaces());
 
     }
 
