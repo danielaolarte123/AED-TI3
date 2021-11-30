@@ -92,30 +92,35 @@ public class Graph<V> implements IGraph<V> {
         });
 
         initialVertex.setDistance(0);
+        distances.add(initialVertex);
         for (Vertex<V> vertex : vertices) {
-            if (vertex != initialVertex)
+            if (vertex != initialVertex) {
                 vertex.setDistance(Integer.MAX_VALUE);
-            vertex.setPrev(null);
-            distances.add(vertex);
+                vertex.setPrev(null);
+                distances.add(vertex);
+            }
         }
+        System.out.println("Maximum Value set finished");
         while (!distances.isEmpty()) {
             Vertex<V> u = distances.poll();
             for (Vertex<V> v : u.adjacency()) {
                 int alt = u.getDistance() + length(u, v);
-                // TODO complete length method
                 if (alt < v.getDistance()) {
                     v.setDistance(alt);
                     v.setPrev(u);
                 }
             }
         }
+        System.out.println("Previous set");
         Stack<Vertex<V>> path = new Stack<>();
         Vertex<V> target = finalVertex;
         if (target.getPrev() != null || target == initialVertex) {
             while (target != null) {
+                System.out.println(target.getItem());
                 path.push(target);
                 target = target.getPrev();
             }
+            System.out.println("Path found");
         }
         return path;
     }
