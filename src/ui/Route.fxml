@@ -17,7 +17,7 @@
                   <Font size="32.0" />
                </font>
             </Label>
-            <Button layoutX="14.0" layoutY="535.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" stylesheets="@../styles/styles.css" text="Back" />
+            <Button layoutX="14.0" layoutY="535.0" mnemonicParsing="false" onAction="#loadMenu" prefHeight="25.0" prefWidth="104.0" stylesheets="@../styles/styles.css" text="Back" />
             <ListView layoutX="32.0" layoutY="58.0" prefHeight="399.0" prefWidth="587.0" stylesheets="@../styles/styles.css" />
          </children>
       </AnchorPane>
