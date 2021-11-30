@@ -15,7 +15,7 @@
   .button
   {
     -fx-font-family: "IBM Plex Sans";
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-size: 20px;
     -fx-background-color:#90CBFB;
     -fx-backgorund-radius:10;
@@ -51,5 +51,20 @@
     -fx-selection-bar-text-fill: "white";
     -fx-border-color:white;
     -fx-border-width: 0 0 2 0;
+
+}
+
+
+.list-view{
+
+  -fx-font-family: "IBM Plex Sans";
+  -fx-background-color: #90CBFB;
+  -fx-font-size: 20px;
+  -fx-faint-focus-color: #B4C5E4;
+  -fx-selection-bar: #90CBFB;
+  -fx-selection-bar-text-fill: "white";
+  -fx-border-color:white;
+  -fx-border-width: 0 0 2 0;
+
 
 }

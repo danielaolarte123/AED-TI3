@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane style="-fx-background-color: #162B4E;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #162B4E;" BorderPane.alignment="CENTER">
@@ -19,15 +18,15 @@
                   <Image url="@../resources/icesi-map.jpg" />
                </image>
             </ImageView>
-            <ComboBox fx:id="initPoint" layoutX="338.0" layoutY="608.0" prefHeight="46.0" prefWidth="166.0" promptText="Start point" styleClass="choice-box" stylesheets="@../styles/styles.css" />
-            <ComboBox fx:id="finalPoint" layoutX="612.0" layoutY="608.0" prefHeight="46.0" prefWidth="166.0" promptText="Final point" styleClass="choice-box" stylesheets="@../styles/styles.css" />
+            <ComboBox fx:id="initPoint" layoutX="178.0" layoutY="608.0" prefHeight="46.0" prefWidth="340.0" promptText="Start point" styleClass="choice-box" stylesheets="@../styles/styles.css" />
+            <ComboBox fx:id="finalPoint" layoutX="619.0" layoutY="608.0" prefHeight="46.0" prefWidth="340.0" promptText="Final point" styleClass="choice-box" stylesheets="@../styles/styles.css" />
             <Label layoutX="248.0" layoutY="557.0" stylesheets="@../styles/styles.css" text="Choose two points in the map to find the shortest route between them">
                <font>
                   <Font size="27.0" />
                </font>
             </Label>
-            <Button layoutX="827.0" layoutY="608.0" mnemonicParsing="false" onAction="#findBestRoute" prefHeight="42.0" prefWidth="253.0" stylesheets="@../styles/styles.css" text="Find best route" />
-            <Button layoutX="537.0" layoutY="610.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="48.0" stylesheets="@../styles/styles.css" text="⇄" />
+            <Button layoutX="994.0" layoutY="610.0" mnemonicParsing="false" onAction="#findBestRoute" prefHeight="42.0" prefWidth="177.0" stylesheets="@../styles/styles.css" text="Find best route" />
+            <Button layoutX="542.0" layoutY="610.0" mnemonicParsing="false" onAction="#changePoints" prefHeight="42.0" prefWidth="48.0" stylesheets="@../styles/styles.css" text="⇄" />
          </children>
       </AnchorPane>
    </bottom>
