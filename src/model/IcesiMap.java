@@ -62,13 +62,15 @@ public class IcesiMap {
         br.close();
     }
 
-    public String lowerCostPath(Vertex<Place> initialPlace, Vertex<Place> finalPlace) {
-        Stack<Vertex<Place>> lowerCostPathStack = map.dijkstra(initialPlace, finalPlace);
-        Vertex<Place>[] lowerCostPathArray = (Vertex<Place>[]) lowerCostPathStack.toArray();
+    public ArrayList<String> lowerCostPath(Place initialPlace, Place finalPlace) {
+        ArrayList<String> message = new ArrayList<>();
 
-        String message = "";
-        for (Vertex<Place> place : lowerCostPathArray) {
-            message += place.toString() + "\n";
+        Vertex<Place> start = map.searchVertex(initialPlace);
+        Vertex<Place> end = map.searchVertex(finalPlace);
+        Stack<Vertex<Place>> lowerCostPathStack = map.dijkstra(start, end);
+
+        for (Vertex<Place> place : lowerCostPathStack) {
+            message.add(place.getItem().getName());
         }
         return message;
     }
