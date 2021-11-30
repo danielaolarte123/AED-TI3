@@ -109,7 +109,7 @@ public class Graph<V> implements IGraph<V> {
     }
 
     private int length(Vertex<V> u, Vertex<V> v) {
-        return 0;
+        return u.searchEdge(v).getCost();
     }
 
     @Override
