@@ -19,15 +19,11 @@ public class IcesiMap {
     public IcesiMap() throws IOException {
         map = new Graph<>();
         importData();
-        System.out.println(map.toString());
+       
     }
 
     private void addPlace(Place newPlace) {
         map.insertVertex(newPlace);
-    }
-
-    private boolean deletePlace(Place placeToDelete) {
-        return map.delete(placeToDelete);
     }
 
     private void insertAdjacent(String rowOfAdjacent) {
@@ -35,8 +31,6 @@ public class IcesiMap {
         Place mainPlace = new Place(adjacent[0]);
         if (map.searchVertex(mainPlace) == null){
             addPlace(mainPlace);
-        }else{
-            System.out.println("X");
         }
 
         for (int i = 1; i < adjacent.length; i += 2) {

@@ -63,6 +63,8 @@ public class Vertex<V> {
 
     @Override
     public String toString() {
+        //TODO fix
+        /*
         String msg = "ITEM: " + getItem() + "| ";
         for (Edge<V> edge : edges) {
             Vertex<V> vertex = compareEdge(edge);
@@ -74,8 +76,9 @@ public class Vertex<V> {
             }
 
         }
+        */
 
-        return msg;
+        return item.toString();
     }
 
 
