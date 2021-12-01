@@ -35,19 +35,19 @@ public class Vertex<V> {
         this.edges = edges;
     }
 
-    public int getDistance () {
+    public int getDistance() {
         return distance;
     }
 
-    public void setDistance (int distance) {
+    public void setDistance(int distance) {
         this.distance = distance;
     }
 
-    public Vertex<V> getPrev () {
+    public Vertex<V> getPrev() {
         return prev;
     }
 
-    public void setPrev (Vertex<V> prev) {
+    public void setPrev(Vertex<V> prev) {
         this.prev = prev;
     }
 
@@ -75,12 +75,11 @@ public class Vertex<V> {
 
         }
 
-        return msg;
+        return item.toString();
     }
 
-
     public ArrayList<Vertex<V>> adjacency() {
-        ArrayList<Vertex<V>> list=new ArrayList<>();
+        ArrayList<Vertex<V>> list = new ArrayList<>();
         for (Edge<V> edge : edges) {
             Vertex<V> vertex = compareEdge(edge);
 
@@ -107,11 +106,11 @@ public class Vertex<V> {
         }
     }
 
-    public Edge<V> searchEdge(Vertex<V> vertex){
-        for (Edge<V> edge:edges) {
-            if (edge.getVertex1()==vertex){
+    public Edge<V> searchEdge(Vertex<V> vertex) {
+        for (Edge<V> edge : edges) {
+            if (edge.getVertex1() == vertex) {
                 return edge;
-            }else if (edge.getVertex2()==vertex){
+            } else if (edge.getVertex2() == vertex) {
                 return edge;
             }
         }

@@ -3,13 +3,13 @@ package ui;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import javafx.scene.control.SingleSelectionModel;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import model.IcesiMap;
 import model.Place;
@@ -67,10 +67,18 @@ public class Controller {
         mainPane.getChildren().clear();
         mainPane.getChildren().addAll(pane);
 
-        // List view
-        Place initialPlace = new Place(initPoint.getSelectionModel().getSelectedItem());
-        Place finalPlace = new Place(finalPoint.getSelectionModel().getSelectedItem());
-        listView.getItems().addAll(icesiMap.lowerCostPath(initialPlace,finalPlace));
+        try {
+
+            // List view
+            Place initialPlace = new Place(initPoint.getSelectionModel().getSelectedItem());
+            Place finalPlace = new Place(finalPoint.getSelectionModel().getSelectedItem());
+            listView.getItems().addAll(icesiMap.lowerCostPath(initialPlace, finalPlace));
+        } catch (Exception e) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Select a valid option");
+            alert.showAndWait();
+        }
 
     }
 

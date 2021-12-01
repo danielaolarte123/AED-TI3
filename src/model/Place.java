@@ -3,7 +3,7 @@ package model;
 public class Place {
     private String name;
 
-    public Place (String name) {
+    public Place(String name) {
         this.name = name;
     }
 
@@ -16,11 +16,9 @@ public class Place {
     }
 
     @Override
-    public String toString () {
+    public String toString() {
         return name;
     }
-
-
 
     @Override
     public boolean equals(Object obj) {
@@ -29,7 +27,5 @@ public class Place {
 
         return name.equals(other.getName());
     }
-
-    
 
 }
