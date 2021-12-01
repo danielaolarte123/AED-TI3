@@ -75,7 +75,7 @@ public class Vertex<V> {
 
         }
 
-        return item.toString();
+        return msg;
     }
 
     public ArrayList<Vertex<V>> adjacency() {
