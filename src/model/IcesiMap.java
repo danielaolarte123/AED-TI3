@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Stack;
 
 public class IcesiMap {
@@ -19,7 +21,7 @@ public class IcesiMap {
     public IcesiMap() throws IOException {
         map = new Graph<>();
         importData();
-       
+
     }
 
     private void addPlace(Place newPlace) {
@@ -29,20 +31,20 @@ public class IcesiMap {
     private void insertAdjacent(String rowOfAdjacent) {
         String[] adjacent = rowOfAdjacent.split(SEPARATOR);
         Place mainPlace = new Place(adjacent[0]);
-        if (map.searchVertex(mainPlace) == null){
+        if (map.searchVertex(mainPlace) == null) {
             addPlace(mainPlace);
         }
 
         for (int i = 1; i < adjacent.length; i += 2) {
             Place adjacentPlace = new Place(adjacent[i + 1]);
             int cost = Integer.parseInt(adjacent[i]);
-            if (map.searchVertex(adjacentPlace) == null){
+            if (map.searchVertex(adjacentPlace) == null) {
                 addPlace(adjacentPlace);
             }
-            if(map.searchVertex(mainPlace).searchEdge(map.searchVertex(adjacentPlace))==null){
+            if (map.searchVertex(mainPlace).searchEdge(map.searchVertex(adjacentPlace)) == null) {
                 map.insertEdge(mainPlace, adjacentPlace, cost);
             }
-            
+
         }
     }
 
@@ -66,6 +68,7 @@ public class IcesiMap {
         for (Vertex<Place> place : lowerCostPathStack) {
             message.add(place.getItem().getName());
         }
+        Collections.reverse(message);
         return message;
     }
 

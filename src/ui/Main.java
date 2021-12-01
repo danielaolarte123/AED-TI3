@@ -23,28 +23,29 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 
-		controller=new Controller(icesiMap);
+		controller = new Controller(icesiMap);
 	}
 
 	public static void main(String[] args) {
 		launch(args);
 
-
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
-		 FXMLLoader fxmload = new FXMLLoader(getClass().getResource("Pane.fxml"));
-		 fxmload.setController(controller); Parent root=fxmload.load(); Scene
-		 scene = new Scene(root,1280,720); primaryStage.setScene(scene);
-		 primaryStage.show(); primaryStage.setTitle("ICESI MAP");
+
+		FXMLLoader fxmload = new FXMLLoader(getClass().getResource("Pane.fxml"));
+		fxmload.setController(controller);
+		Parent root = fxmload.load();
+		Scene scene = new Scene(root, 1280, 720);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		primaryStage.setTitle("ICESI MAP");
 		primaryStage.setResizable(false);
-		 
-		 Image icon = new Image("resources/icon.png");
-		  primaryStage.getIcons().add(icon);
-		  controller.loadMenu();
-		 
+
+		Image icon = new Image("resources/icon.png");
+		primaryStage.getIcons().add(icon);
+		controller.loadMenu();
 
 	}
 
