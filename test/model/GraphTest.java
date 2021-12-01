@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Stack;
+
 import org.junit.jupiter.api.Test;
 
 import dataStructures.Edge;
@@ -76,6 +78,24 @@ public class GraphTest {
         graph.insertEdge("8", "7", 1);
         graph.insertEdge("8", "10", 1);
         graph.insertEdge("8", "11", 1);
+
+    }
+    
+    private void setupStage4() {
+        graph = new Graph<String>();
+        graph.insertVertex("1");
+        graph.insertVertex("2");
+        graph.insertVertex("3");
+        graph.insertVertex("4");
+        graph.insertVertex("5");
+
+        graph.insertEdge("1", "2", 2);
+        graph.insertEdge("1", "3", 4);
+        graph.insertEdge("2", "4", 1);
+        graph.insertEdge("5", "1", 8);
+        graph.insertEdge("5", "2", 2);
+        graph.insertEdge("5", "3", 6);
+        graph.insertEdge("5", "4", 4);
 
     }
 
@@ -229,5 +249,23 @@ public class GraphTest {
         assertTrue(delete6);
 
     }
+    
+    @Test
+    public void dijkstraTest() {
+    	
+    	setupStage4();
+    	
+    	Vertex<String> vertex1 = graph.searchVertex("1");
+    	Vertex<String> vertex2 = graph.searchVertex("5");
+    	Vertex<String> vertex3 = graph.searchVertex("2");
+    	
+    	Stack<Vertex<String>> path = graph.dijkstra(vertex1, vertex2);
+    	assertTrue(path.pop() == vertex1);
+    	assertTrue(path.pop() == vertex3);
+    	assertTrue(path.pop() == vertex2);
+    	
+    }
+    
+    
 
 }
