@@ -59,7 +59,6 @@ public class Graph<V> implements IGraph<V> {
         this.vertices = vertices;
     }
 
-
     public ArrayList<Edge<V>> getEdges() {
         return edges;
     }
@@ -100,7 +99,7 @@ public class Graph<V> implements IGraph<V> {
                 distances.add(vertex);
             }
         }
-        System.out.println("Maximum Value set finished");
+
         while (!distances.isEmpty()) {
             Vertex<V> u = distances.poll();
             for (Vertex<V> v : u.adjacency()) {
@@ -111,17 +110,17 @@ public class Graph<V> implements IGraph<V> {
                 }
             }
         }
-        System.out.println("Previous set");
+        
         Stack<Vertex<V>> path = new Stack<>();
         Vertex<V> target = finalVertex;
         if (target.getPrev() != null || target == initialVertex) {
             while (target != null) {
-                System.out.println(target.getItem());
                 path.push(target);
                 target = target.getPrev();
             }
-            System.out.println("Path found");
+          
         }
+       
         return path;
     }
 
